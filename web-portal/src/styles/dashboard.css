@@ -1,0 +1,548 @@
+/**
+ * Estilos para la página de Dashboard
+ * Diseño que replica exactamente la imagen de referencia (Figma)
+ * 
+ * Componentes estilizados:
+ * - Título y subtítulo
+ * - Cards de estadísticas (3 cards horizontales)
+ * - Botón "Publicar Nuevo Servicio"
+ * - Sección "Mis Servicios Recientes"
+ * - Card de estado vacío
+ */
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+
+/* Página del dashboard */
+.dashboard-page {
+  width: 100%;
+  max-width: 1200px; /* Ancho máximo del contenido */
+  margin: 0 auto; /* Centrado */
+}
+
+/* ============================================
+   HEADER (TÍTULO Y SUBTÍTULO)
+   ============================================ */
+
+/* Título principal "Panel de Solicitante" */
+.dashboard-title {
+  font-size: 32px; /* Tamaño grande */
+  font-weight: 700; /* Bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 8px 0; /* Sin margen superior, 8px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: -0.5px; /* Espaciado de letras ligeramente negativo */
+}
+
+/* Subtítulo descriptivo */
+.dashboard-subtitle {
+  font-size: 16px; /* Tamaño mediano */
+  font-weight: 400; /* Normal */
+  color: #6B7280; /* Gris claro */
+  margin: 0 0 32px 0; /* Sin margen superior, 32px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   CARDS DE ESTADÍSTICAS
+   ============================================ */
+
+/* Contenedor de las cards de estadísticas */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
+  gap: 24px; /* Espaciado entre cards */
+  margin-bottom: 32px; /* Espaciado inferior de 32px */
+}
+
+/* Card individual de estadística */
+.stat-card {
+  background-color: white;
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 12px; /* Radio redondeado de 12px */
+  padding: 24px; /* Padding interno */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06); /* Sombra muy suave */
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Espaciado entre icono y contenido */
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+/* Efecto hover en las cards */
+.stat-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06); /* Sombra más pronunciada */
+  transform: translateY(-2px); /* Ligero movimiento hacia arriba */
+}
+
+/* Ícono de la estadística */
+.stat-icon {
+  font-size: 40px; /* Tamaño grande del ícono */
+  width: 64px; /* Ancho fijo */
+  height: 64px; /* Alto fijo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px; /* Radio suave */
+  flex-shrink: 0; /* No se encoge */
+}
+
+/* Ícono azul (Servicios Publicados) */
+.stat-icon-blue {
+  background-color: #DBEAFE; /* Azul muy claro */
+  color: #1E40AF; /* Azul oscuro */
+}
+
+/* Ícono verde (Cotizaciones Recibidas) */
+.stat-icon-green {
+  background-color: #D1FAE5; /* Verde muy claro */
+  color: #065F46; /* Verde oscuro */
+}
+
+/* Ícono naranja (En Evaluación) */
+.stat-icon-orange {
+  background-color: #FED7AA; /* Naranja muy claro */
+  color: #92400E; /* Naranja oscuro */
+}
+
+/* Contenedor del contenido (número y texto) */
+.stat-content {
+  flex: 1; /* Ocupa el espacio restante */
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* Espaciado entre número y texto */
+}
+
+/* Número grande de la estadística */
+.stat-number {
+  font-size: 36px; /* Tamaño muy grande */
+  font-weight: 700; /* Bold */
+  color: #1F2937; /* Gris oscuro */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1; /* Sin interlineado extra */
+}
+
+/* Texto descriptivo de la estadística */
+.stat-label {
+  font-size: 14px; /* Tamaño pequeño */
+  font-weight: 500; /* Medium */
+  color: #6B7280; /* Gris medio */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   BOTÓN PUBLICAR NUEVO SERVICIO
+   ============================================ */
+
+/* Contenedor de acciones */
+.dashboard-actions {
+  margin-bottom: 32px; /* Espaciado inferior de 32px */
+}
+
+/* Botón "Publicar Nuevo Servicio" */
+.dashboard-publish-button {
+  padding: 14px 24px; /* Padding interno */
+  background-color: #2563EB; /* Azul (#2563EB) igual al login */
+  color: white;
+  border: none;
+  border-radius: 8px; /* Radio suave */
+  font-size: 16px;
+  font-weight: 600; /* Semi-bold */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Estado hover del botón */
+.dashboard-publish-button:hover {
+  background-color: #1D4ED8; /* Azul más oscuro al pasar el mouse */
+  transform: translateY(-1px); /* Ligero movimiento hacia arriba */
+}
+
+/* Estado active del botón */
+.dashboard-publish-button:active {
+  transform: translateY(0); /* Vuelve a la posición original */
+  background-color: #1E40AF; /* Azul aún más oscuro */
+}
+
+/* Contenedor de acciones para proveedor (dos botones) */
+.dashboard-actions-provider {
+  display: flex;
+  gap: 12px; /* Espaciado entre botones */
+  flex-wrap: wrap; /* Permite que se ajuste en pantallas pequeñas */
+}
+
+/* Botones de acción del proveedor */
+.dashboard-action-button {
+  padding: 12px 24px; /* Padding interno */
+  border-radius: 8px; /* Radio suave */
+  font-size: 14px;
+  font-weight: 600; /* Semi-bold */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+/* Botón primario (azul) */
+.dashboard-action-primary {
+  background-color: #2563EB; /* Azul */
+  color: white;
+}
+
+.dashboard-action-primary:hover {
+  background-color: #1D4ED8; /* Azul más oscuro */
+  transform: translateY(-1px); /* Ligero movimiento */
+}
+
+/* Botón secundario (blanco con borde azul) */
+.dashboard-action-secondary {
+  background-color: white;
+  color: #2563EB; /* Azul */
+  border: 1px solid #2563EB; /* Borde azul */
+}
+
+.dashboard-action-secondary:hover {
+  background-color: #F3F4F6; /* Fondo gris muy claro */
+  border-color: #1D4ED8; /* Borde azul más oscuro */
+  color: #1D4ED8; /* Texto azul más oscuro */
+}
+
+/* Grid de insumos recientes (para PROVEEDOR_INSUMOS) */
+.recent-supplies-grid {
+  display: grid; /* Grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas responsivas */
+  gap: 16px; /* Espaciado entre cards */
+}
+
+/* Card de insumo reciente */
+.recent-supply-card {
+  background-color: white; /* Fondo blanco */
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 12px; /* Radio redondeado */
+  padding: 20px; /* Padding interno */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra muy sutil */
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Columna */
+  gap: 12px; /* Espaciado entre secciones */
+}
+
+.recent-supply-header {
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Columna */
+  gap: 8px; /* Espaciado entre título y categoría */
+}
+
+.recent-supply-title {
+  font-size: 16px; /* Tamaño de fuente */
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0; /* Sin margen */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.recent-supply-category {
+  font-size: 12px; /* Tamaño pequeño */
+  padding: 4px 8px; /* Padding interno */
+  background-color: #F3F4F6; /* Fondo gris muy claro */
+  color: #1F2937; /* Gris oscuro */
+  border-radius: 4px; /* Radio pequeño */
+  font-weight: 500; /* Medium */
+  display: inline-block; /* Display inline-block */
+  width: fit-content; /* Ancho según contenido */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.recent-supply-footer {
+  display: flex; /* Flexbox */
+  justify-content: space-between; /* Espacio entre precio y stock */
+  align-items: center; /* Alineación vertical */
+  margin-top: auto; /* Empuja hacia abajo */
+}
+
+.recent-supply-price {
+  font-size: 14px; /* Tamaño pequeño */
+  font-weight: 700; /* Bold */
+  color: #1F2937; /* Gris oscuro */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.recent-supply-stock {
+  font-size: 14px; /* Tamaño pequeño */
+  color: #6B7280; /* Gris medio */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   SECCIÓN: MIS SERVICIOS RECIENTES
+   ============================================ */
+
+/* Contenedor de la sección de servicios recientes */
+.dashboard-recent-section {
+  margin-top: 24px; /* Margen superior */
+}
+
+/* Header de la sección (título y link) */
+.recent-section-header {
+  display: flex;
+  justify-content: space-between; /* Espacio entre título y link */
+  align-items: center;
+  margin-bottom: 16px; /* Espaciado inferior */
+}
+
+/* Título de la sección */
+.recent-section-title {
+  font-size: 20px; /* Tamaño mediano */
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0; /* Sin márgenes */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Link "Ver todos" */
+.recent-section-link {
+  background: none;
+  border: none;
+  color: #2563EB; /* Azul */
+  font-size: 14px;
+  font-weight: 500; /* Medium */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  padding: 0; /* Sin padding */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+/* Estado hover del link */
+.recent-section-link:hover {
+  color: #1D4ED8; /* Azul más oscuro */
+  text-decoration: underline;
+}
+
+/* ============================================
+   CARD DE ESTADO VACÍO
+   ============================================ */
+
+/* Card grande vacía cuando no hay servicios */
+.recent-empty-card {
+  background-color: white;
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 12px; /* Radio redondeado de 12px */
+  padding: 64px 32px; /* Padding generoso */
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06); /* Sombra muy suave */
+}
+
+/* Ícono del estado vacío */
+.empty-card-icon {
+  font-size: 64px; /* Tamaño grande del ícono */
+  margin-bottom: 24px; /* Espaciado inferior */
+  opacity: 0.5; /* Opacidad reducida para efecto sutil */
+}
+
+/* Título del estado vacío */
+.empty-card-title {
+  font-size: 20px;
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 8px 0; /* Sin margen superior, 8px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Texto descriptivo del estado vacío */
+.empty-card-text {
+  font-size: 14px;
+  font-weight: 400; /* Normal */
+  color: #6B7280; /* Gris medio */
+  margin: 0 0 24px 0; /* Sin margen superior, 24px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5; /* Interlineado cómodo */
+}
+
+/* Botón en el estado vacío */
+.empty-card-button {
+  padding: 12px 24px; /* Padding interno */
+  background-color: #2563EB; /* Azul */
+  color: white;
+  border: none;
+  border-radius: 8px; /* Radio suave */
+  font-size: 14px;
+  font-weight: 600; /* Semi-bold */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Estado hover del botón del estado vacío */
+.empty-card-button:hover {
+  background-color: #1D4ED8; /* Azul más oscuro */
+  transform: translateY(-1px); /* Ligero movimiento */
+}
+
+/* ============================================
+   LISTA DE SERVICIOS RECIENTES
+   ============================================ */
+
+/* Lista de servicios recientes cuando hay servicios */
+.recent-services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Espaciado entre cards */
+}
+
+/* Card individual de servicio reciente - Formato horizontal */
+.recent-service-card {
+  background-color: white;
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 12px; /* Radio redondeado de 12px */
+  padding: 20px 24px; /* Padding interno */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06); /* Sombra muy suave */
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  justify-content: space-between; /* Espacio entre izquierda y derecha */
+  align-items: center; /* Alineación vertical centrada */
+}
+
+/* Efecto hover en la card de servicio */
+.recent-service-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06); /* Sombra más pronunciada */
+  transform: translateY(-2px); /* Ligero movimiento hacia arriba */
+}
+
+/* Contenedor izquierdo (título y meta) */
+.recent-service-left {
+  flex: 1; /* Ocupa el espacio disponible */
+  min-width: 0; /* Permite que el texto se trunque si es necesario */
+}
+
+/* Título del servicio */
+.recent-service-title {
+  font-size: 16px;
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 8px 0; /* Sin margen superior, 8px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Contenedor de meta información (ciudad y fecha) */
+.recent-service-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaciado entre elementos */
+  font-size: 14px;
+  font-weight: 400; /* Normal */
+  color: #6B7280; /* Gris medio */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Ubicación del servicio */
+.recent-service-location {
+  color: #6B7280; /* Gris medio */
+}
+
+/* Separador entre ciudad y fecha */
+.recent-service-separator {
+  color: #9CA3AF; /* Gris claro */
+}
+
+/* Fecha del servicio */
+.recent-service-date {
+  color: #6B7280; /* Gris medio */
+}
+
+/* Contenedor derecho (cotizaciones y badge) */
+.recent-service-right {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Espaciado entre cotizaciones y badge */
+  flex-shrink: 0; /* No se encoge */
+}
+
+/* Texto de cotizaciones */
+.recent-service-quotes {
+  font-size: 14px;
+  font-weight: 400; /* Normal */
+  color: #6B7280; /* Gris medio */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Badge de estado del servicio */
+.recent-service-badge {
+  display: inline-block;
+  padding: 4px 12px; /* Padding interno */
+  border-radius: 12px; /* Radio suave */
+  font-size: 12px;
+  font-weight: 500; /* Medium */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Colores de los badges según el estado */
+.recent-service-badge.badge-publicado {
+  background-color: #DBEAFE; /* Azul claro */
+  color: #1E40AF; /* Azul oscuro */
+}
+
+.recent-service-badge.badge-en_evaluacion {
+  background-color: #FEF3C7; /* Amarillo claro */
+  color: #92400E; /* Amarillo oscuro */
+}
+
+.recent-service-badge.badge-asignado {
+  background-color: #D1FAE5; /* Verde claro */
+  color: #065F46; /* Verde oscuro */
+}
+
+.recent-service-badge.badge-completado {
+  background-color: #E0E7FF; /* Índigo claro */
+  color: #3730A3; /* Índigo oscuro */
+}
+
+/* ============================================
+   RESPONSIVE (para pantallas pequeñas)
+   ============================================ */
+
+/* Ajustes para tablets */
+@media (max-width: 768px) {
+  .dashboard-stats {
+    grid-template-columns: 1fr; /* Una sola columna */
+    gap: 16px; /* Espaciado reducido */
+  }
+
+  .recent-services-list {
+    grid-template-columns: 1fr; /* Una sola columna */
+  }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 480px) {
+  .dashboard-title {
+    font-size: 24px; /* Título más pequeño */
+  }
+
+  .dashboard-subtitle {
+    font-size: 14px; /* Subtítulo más pequeño */
+  }
+
+  .stat-card {
+    padding: 20px; /* Padding reducido */
+  }
+
+  .stat-icon {
+    width: 56px; /* Ícono más pequeño */
+    height: 56px;
+    font-size: 32px;
+  }
+
+  .stat-number {
+    font-size: 28px; /* Número más pequeño */
+  }
+
+  .recent-empty-card {
+    padding: 48px 24px; /* Padding reducido */
+  }
+
+  .empty-card-icon {
+    font-size: 48px; /* Ícono más pequeño */
+  }
+}
+

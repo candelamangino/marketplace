@@ -1,0 +1,258 @@
+/* ============================================
+   ESTILOS PARA LA PÁGINA DE COTIZACIONES DEL PROVEEDOR
+   ============================================ */
+
+/* Contenedor principal de la página */
+.provider-quotes-page {
+  padding: 24px; /* Padding general */
+  max-width: 1200px; /* Ancho máximo */
+  margin: 0 auto; /* Centrado */
+}
+
+/* Header: Título y subtítulo */
+.quotes-header {
+  margin-bottom: 24px; /* Espaciado inferior */
+}
+
+.quotes-title {
+  font-size: 28px; /* Tamaño de fuente grande */
+  font-weight: 700; /* Bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 8px 0; /* Margen inferior pequeño */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.quotes-subtitle {
+  font-size: 16px; /* Tamaño de fuente medio */
+  color: #6B7280; /* Gris medio */
+  margin: 0; /* Sin margen */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Cards de estadísticas */
+.quotes-stats {
+  display: grid; /* Grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Columnas responsivas */
+  gap: 16px; /* Espaciado entre cards */
+  margin-bottom: 24px; /* Espaciado inferior */
+}
+
+.quote-stat-card {
+  background-color: white; /* Fondo blanco */
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 12px; /* Radio redondeado */
+  padding: 20px; /* Padding interno */
+  display: flex; /* Flexbox */
+  align-items: center; /* Alineación vertical */
+  gap: 16px; /* Espaciado entre icono y contenido */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra muy sutil */
+}
+
+.quote-stat-icon {
+  font-size: 32px; /* Tamaño del icono */
+  flex-shrink: 0; /* No se encoge */
+}
+
+.quote-stat-content {
+  flex: 1; /* Ocupa el espacio restante */
+}
+
+.quote-stat-number {
+  font-size: 28px; /* Tamaño grande */
+  font-weight: 700; /* Bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 4px 0; /* Margen inferior pequeño */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.quote-stat-label {
+  font-size: 14px; /* Tamaño pequeño */
+  color: #6B7280; /* Gris medio */
+  margin: 0; /* Sin margen */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Barra de búsqueda */
+.quotes-search {
+  margin-bottom: 24px; /* Espaciado inferior */
+}
+
+.quotes-search-input {
+  width: 100%; /* Ancho completo */
+  padding: 12px 16px; /* Padding interno */
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 8px; /* Radio redondeado */
+  font-size: 14px; /* Tamaño de fuente */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1F2937; /* Color de texto */
+  background-color: white; /* Fondo blanco */
+  transition: border-color 0.2s; /* Transición suave */
+}
+
+.quotes-search-input:focus {
+  outline: none; /* Sin outline por defecto */
+  border-color: #2563EB; /* Borde azul al enfocar */
+}
+
+.quotes-search-input::placeholder {
+  color: #9CA3AF; /* Color del placeholder */
+}
+
+/* Estado vacío */
+.quotes-empty-state {
+  text-align: center; /* Texto centrado */
+  padding: 48px 24px; /* Padding interno */
+  color: #6B7280; /* Gris medio */
+  font-size: 16px; /* Tamaño de fuente */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Grupos de cotizaciones */
+.quotes-groups {
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Columna */
+  gap: 24px; /* Espaciado entre grupos */
+}
+
+.quote-group {
+  margin-bottom: 24px; /* Espaciado inferior */
+}
+
+.quote-group-title {
+  font-size: 18px; /* Tamaño de fuente */
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 16px 0; /* Margen inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.quote-group-title-evaluacion {
+  color: #F59E0B; /* Naranja para "En Evaluación" */
+}
+
+.quote-group-list {
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Columna */
+  gap: 12px; /* Espaciado entre items */
+}
+
+/* Card de cotización individual */
+.quote-item-card {
+  background-color: white; /* Fondo blanco */
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 12px; /* Radio redondeado */
+  padding: 20px; /* Padding interno */
+  display: flex; /* Flexbox */
+  justify-content: space-between; /* Espacio entre izquierda y derecha */
+  align-items: center; /* Alineación vertical */
+  gap: 16px; /* Espaciado entre secciones */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra muy sutil */
+  transition: box-shadow 0.2s; /* Transición suave */
+}
+
+.quote-item-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada al hover */
+}
+
+.quote-item-left {
+  flex: 1; /* Ocupa el espacio disponible */
+  min-width: 0; /* Permite que se encoja */
+}
+
+.quote-item-title {
+  font-size: 18px; /* Tamaño de fuente */
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 8px 0; /* Margen inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.quote-item-meta {
+  display: flex; /* Flexbox */
+  flex-wrap: wrap; /* Permite que se ajuste */
+  gap: 12px; /* Espaciado entre elementos */
+  align-items: center; /* Alineación vertical */
+}
+
+.quote-item-location,
+.quote-item-date {
+  font-size: 14px; /* Tamaño pequeño */
+  color: #6B7280; /* Gris medio */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.quote-item-category {
+  font-size: 12px; /* Tamaño muy pequeño */
+  padding: 4px 8px; /* Padding interno */
+  background-color: #F3F4F6; /* Fondo gris muy claro */
+  color: #1F2937; /* Gris oscuro */
+  border-radius: 4px; /* Radio pequeño */
+  font-weight: 500; /* Medium */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.quote-item-right {
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Columna */
+  align-items: flex-end; /* Alineación a la derecha */
+  gap: 8px; /* Espaciado entre elementos */
+  flex-shrink: 0; /* No se encoge */
+}
+
+.quote-item-price {
+  font-size: 18px; /* Tamaño de fuente */
+  font-weight: 700; /* Bold */
+  color: #1F2937; /* Gris oscuro */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.quote-item-plazo {
+  font-size: 14px; /* Tamaño pequeño */
+  color: #6B7280; /* Gris medio */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.quote-item-actions {
+  display: flex; /* Flexbox */
+  gap: 8px; /* Espaciado entre botones */
+  align-items: center; /* Alineación vertical */
+}
+
+.quote-edit-button {
+  padding: 8px 16px; /* Padding interno */
+  background-color: #E8F0FE; /* Fondo celeste claro */
+  color: #2563EB; /* Azul */
+  border: none; /* Sin borde */
+  border-radius: 6px; /* Radio pequeño */
+  font-size: 14px; /* Tamaño de fuente */
+  font-weight: 500; /* Medium */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer; /* Cursor pointer */
+  transition: background-color 0.2s; /* Transición suave */
+  text-decoration: none; /* Sin subrayado */
+  display: inline-block; /* Display inline-block */
+}
+
+.quote-edit-button:hover {
+  background-color: #DBEAFE; /* Fondo celeste más claro */
+}
+
+.quote-detail-button {
+  padding: 8px 16px; /* Padding interno */
+  background-color: #2563EB; /* Azul */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 6px; /* Radio pequeño */
+  font-size: 14px; /* Tamaño de fuente */
+  font-weight: 500; /* Medium */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer; /* Cursor pointer */
+  transition: background-color 0.2s; /* Transición suave */
+  text-decoration: none; /* Sin subrayado */
+  display: inline-block; /* Display inline-block */
+}
+
+.quote-detail-button:hover {
+  background-color: #1D4ED8; /* Azul más oscuro */
+}
+

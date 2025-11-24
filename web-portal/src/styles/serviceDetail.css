@@ -1,0 +1,613 @@
+/**
+ * Estilos para la página de detalle de servicio
+ * Diseño que replica exactamente las imágenes de referencia (Figma)
+ * 
+ * Layout de dos columnas:
+ * - Columna izquierda: Datos del servicio, Insumos, Cotizaciones
+ * - Columna derecha: Packs de insumos, Información
+ */
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+
+/* Página de detalle de servicio */
+.service-detail-page {
+  width: 100%;
+  max-width: 1400px; /* Ancho máximo del contenido */
+  margin: 0 auto; /* Centrado */
+}
+
+/* ============================================
+   LINK DE VOLVER
+   ============================================ */
+
+/* Link "← Volver a servicios" */
+.service-detail-back {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500; /* Medium */
+  color: #2563EB; /* Azul */
+  text-decoration: none;
+  margin-bottom: 16px; /* Espaciado inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: color 0.2s;
+}
+
+/* Estado hover del link */
+.service-detail-back:hover {
+  color: #1D4ED8; /* Azul más oscuro */
+  text-decoration: underline;
+}
+
+/* ============================================
+   HEADER (TÍTULO Y BADGE)
+   ============================================ */
+
+/* Contenedor del header */
+.service-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Espaciado entre título y badge */
+  margin-bottom: 32px; /* Espaciado inferior */
+  flex-wrap: wrap; /* Permite que se ajuste en pantallas pequeñas */
+}
+
+/* Título del servicio */
+.service-detail-title {
+  font-size: 32px; /* Tamaño grande */
+  font-weight: 700; /* Bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0; /* Sin márgenes */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: -0.5px; /* Espaciado de letras ligeramente negativo */
+}
+
+/* Badge de estado del servicio */
+.service-detail-status {
+  display: inline-block;
+  padding: 6px 16px; /* Padding interno */
+  border-radius: 12px; /* Radio suave */
+  font-size: 14px;
+  font-weight: 500; /* Medium */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Colores de los badges de estado */
+.service-status-publicado {
+  background-color: #DBEAFE; /* Azul claro */
+  color: #1E40AF; /* Azul oscuro */
+}
+
+.service-status-en_evaluacion {
+  background-color: #FEF3C7; /* Amarillo claro */
+  color: #92400E; /* Amarillo oscuro */
+}
+
+.service-status-asignado {
+  background-color: #D1FAE5; /* Verde claro */
+  color: #065F46; /* Verde oscuro */
+}
+
+.service-status-completado {
+  background-color: #E0E7FF; /* Índigo claro */
+  color: #3730A3; /* Índigo oscuro */
+}
+
+/* ============================================
+   LAYOUT DE DOS COLUMNAS
+   ============================================ */
+
+/* Contenedor del layout de dos columnas */
+.service-detail-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Columna izquierda más ancha */
+  gap: 24px; /* Espaciado entre columnas */
+}
+
+/* Columna izquierda */
+.service-detail-left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Espaciado entre cards */
+}
+
+/* Columna derecha */
+.service-detail-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Espaciado entre cards */
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+
+/* Card genérica */
+.service-detail-card {
+  background-color: white;
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 12px; /* Radio redondeado de 12px */
+  padding: 24px; /* Padding interno */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06); /* Sombra muy suave */
+}
+
+/* Título de la card */
+.service-card-title {
+  font-size: 18px;
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 20px 0; /* Sin margen superior, 20px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaciado entre icono y texto */
+}
+
+/* Icono en el título */
+.service-card-icon {
+  font-size: 20px;
+}
+
+/* Header de la card (para cotizaciones con select) */
+.service-card-header {
+  display: flex;
+  justify-content: space-between; /* Espacio entre título y select */
+  align-items: center;
+  margin-bottom: 20px; /* Espaciado inferior */
+  flex-wrap: wrap; /* Permite que se ajuste en pantallas pequeñas */
+  gap: 16px; /* Espaciado cuando se ajusta */
+}
+
+/* ============================================
+   DATOS DEL SERVICIO
+   ============================================ */
+
+/* Contenedor de datos del servicio */
+.service-data-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Espaciado entre items */
+}
+
+/* Item de dato */
+.service-data-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* Espaciado entre label y value */
+}
+
+/* Label del dato */
+.service-data-label {
+  font-size: 14px;
+  font-weight: 500; /* Medium */
+  color: #6B7280; /* Gris medio */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaciado entre icono y texto */
+}
+
+/* Icono en el label */
+.service-data-icon {
+  font-size: 16px;
+}
+
+/* Valor del dato */
+.service-data-value {
+  font-size: 14px;
+  font-weight: 400; /* Normal */
+  color: #1F2937; /* Gris oscuro */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   TABLA DE INSUMOS
+   ============================================ */
+
+/* Tabla de insumos */
+.service-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Header de la tabla */
+.service-table thead {
+  background-color: #F9FAFB; /* Fondo gris muy claro */
+}
+
+/* Celdas del header */
+.service-table th {
+  padding: 12px 16px; /* Padding interno */
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600; /* Semi-bold */
+  color: #374151; /* Gris oscuro */
+  border-bottom: 2px solid #E5E7EB; /* Borde inferior */
+}
+
+/* Celdas del cuerpo */
+.service-table td {
+  padding: 12px 16px; /* Padding interno */
+  font-size: 14px;
+  font-weight: 400; /* Normal */
+  color: #1F2937; /* Gris oscuro */
+  border-bottom: 1px solid #E5E7EB; /* Borde inferior */
+}
+
+/* Última fila sin borde */
+.service-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Hover en las filas */
+.service-table tbody tr:hover {
+  background-color: #F9FAFB; /* Fondo gris muy claro */
+}
+
+/* ============================================
+   COTIZACIONES
+   ============================================ */
+
+/* Select de ordenamiento */
+.service-sort-select {
+  padding: 8px 12px; /* Padding interno */
+  border: 1px solid #E5E7EB; /* Borde gris claro */
+  border-radius: 8px; /* Radio suave */
+  font-size: 14px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #374151; /* Gris oscuro */
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Lista de cotizaciones */
+.quotes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Espaciado entre cards de cotización */
+}
+
+/* Card de cotización */
+.quote-card {
+  display: flex;
+  justify-content: space-between; /* Espacio entre contenido y acciones */
+  align-items: center;
+  padding: 16px; /* Padding interno */
+  background-color: #F9FAFB; /* Fondo gris muy claro */
+  border: 1px solid #E5E7EB; /* Borde gris claro */
+  border-radius: 8px; /* Radio suave */
+  gap: 16px; /* Espaciado entre contenido y acciones */
+}
+
+/* Contenido de la cotización */
+.quote-card-content {
+  flex: 1; /* Ocupa el espacio disponible */
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Espaciado entre elementos */
+}
+
+/* Proveedor y rating */
+.quote-provider {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Espaciado entre nombre y rating */
+}
+
+/* Nombre del proveedor */
+.quote-provider-name {
+  font-size: 16px;
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Rating del proveedor */
+.quote-rating {
+  font-size: 14px;
+  font-weight: 400; /* Normal */
+  color: #6B7280; /* Gris medio */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Detalles de la cotización (precio y plazo) */
+.quote-details {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Espaciado entre precio y plazo */
+}
+
+/* Precio */
+.quote-price {
+  font-size: 18px;
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Plazo */
+.quote-plazo {
+  font-size: 14px;
+  font-weight: 400; /* Normal */
+  color: #6B7280; /* Gris medio */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Acciones de la cotización */
+.quote-card-actions {
+  flex-shrink: 0; /* No se encoge */
+}
+
+/* Botón Seleccionar */
+.quote-select-button {
+  padding: 10px 20px; /* Padding interno */
+  background-color: #2563EB; /* Azul */
+  color: white;
+  border: none;
+  border-radius: 8px; /* Radio suave */
+  font-size: 14px;
+  font-weight: 600; /* Semi-bold */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Estado hover del botón */
+.quote-select-button:hover {
+  background-color: #1D4ED8; /* Azul más oscuro */
+  transform: translateY(-1px); /* Ligero movimiento */
+}
+
+/* Texto "Seleccionada" */
+.quote-selected {
+  font-size: 14px;
+  font-weight: 500; /* Medium */
+  color: #065F46; /* Verde oscuro */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   PACKS DE INSUMOS
+   ============================================ */
+
+/* Lista de packs */
+.supply-packs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Espaciado entre packs */
+}
+
+/* Card de pack */
+.supply-pack-card {
+  padding: 16px; /* Padding interno */
+  background-color: #F9FAFB; /* Fondo gris muy claro */
+  border: 1px solid #E5E7EB; /* Borde gris claro */
+  border-radius: 8px; /* Radio suave */
+}
+
+/* Nombre del pack */
+.supply-pack-name {
+  font-size: 16px;
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 8px 0; /* Sin margen superior, 8px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Precio del pack */
+.supply-pack-price {
+  font-size: 18px;
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 12px 0; /* Sin margen superior, 12px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Contenedor de items */
+.supply-pack-items {
+  margin-top: 12px; /* Margen superior */
+}
+
+/* Label "Incluye:" */
+.supply-pack-label {
+  font-size: 14px;
+  font-weight: 500; /* Medium */
+  color: #374151; /* Gris oscuro */
+  margin: 0 0 8px 0; /* Sin margen superior, 8px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Lista de items */
+.supply-pack-list {
+  margin: 0; /* Sin márgenes */
+  padding-left: 20px; /* Padding izquierdo para la lista */
+  font-size: 14px;
+  font-weight: 400; /* Normal */
+  color: #6B7280; /* Gris medio */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Items de la lista */
+.supply-pack-list li {
+  margin-bottom: 4px; /* Espaciado inferior */
+}
+
+/* ============================================
+   INFORMACIÓN
+   ============================================ */
+
+/* Contenedor de información */
+.service-info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Espaciado entre items */
+}
+
+/* Item de información */
+.service-info-item {
+  display: flex;
+  justify-content: space-between; /* Espacio entre label y value */
+  align-items: center;
+}
+
+/* Label de información */
+.service-info-label {
+  font-size: 14px;
+  font-weight: 500; /* Medium */
+  color: #6B7280; /* Gris medio */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Valor de información */
+.service-info-value {
+  font-size: 14px;
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   TEXTO VACÍO
+   ============================================ */
+
+/* Texto cuando no hay datos */
+.service-empty-text {
+  font-size: 14px;
+  font-weight: 400; /* Normal */
+  color: #6B7280; /* Gris medio */
+  margin: 0; /* Sin márgenes */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-style: italic; /* Cursiva */
+}
+
+/* ============================================
+   RESPONSIVE (para pantallas pequeñas)
+   ============================================ */
+
+/* Ajustes para tablets */
+@media (max-width: 1024px) {
+  .service-detail-layout {
+    grid-template-columns: 1fr; /* Una sola columna */
+  }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+  .service-detail-title {
+    font-size: 24px; /* Título más pequeño */
+  }
+
+  .service-card-header {
+    flex-direction: column; /* Título y select en columna */
+    align-items: flex-start; /* Alineados a la izquierda */
+  }
+
+  .quote-card {
+    flex-direction: column; /* Contenido y acciones en columna */
+    align-items: flex-start; /* Alineados a la izquierda */
+  }
+}
+
+/* ============================================
+   FORMULARIO DE COTIZACIÓN (PROVEEDOR)
+   ============================================ */
+
+/* Formulario de cotización */
+.quote-form {
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Columna */
+  gap: 20px; /* Espaciado entre campos */
+}
+
+/* Campo del formulario */
+.quote-form-field {
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Columna */
+  gap: 8px; /* Espaciado entre label e input */
+}
+
+/* Label del formulario */
+.quote-form-label {
+  font-size: 14px; /* Tamaño pequeño */
+  font-weight: 500; /* Medium */
+  color: #374151; /* Gris oscuro */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Input del formulario */
+.quote-form-input,
+.quote-form-textarea {
+  padding: 12px 16px; /* Padding interno */
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 8px; /* Radio redondeado */
+  font-size: 14px; /* Tamaño de fuente */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1F2937; /* Color de texto */
+  background-color: white; /* Fondo blanco */
+  transition: border-color 0.2s; /* Transición suave */
+  width: 100%; /* Ancho completo */
+  box-sizing: border-box; /* Incluye padding y border en el ancho */
+}
+
+/* Estado focus del input */
+.quote-form-input:focus,
+.quote-form-textarea:focus {
+  outline: none; /* Sin outline por defecto */
+  border-color: #2563EB; /* Borde azul al enfocar */
+}
+
+/* Textarea específico */
+.quote-form-textarea {
+  resize: vertical; /* Permite redimensionar verticalmente */
+  min-height: 100px; /* Altura mínima */
+}
+
+/* Contenedor de acciones del formulario */
+.quote-form-actions {
+  display: flex; /* Flexbox */
+  gap: 12px; /* Espaciado entre botones */
+  margin-top: 8px; /* Margen superior */
+}
+
+/* Botón de envío del formulario */
+.quote-form-submit {
+  padding: 12px 24px; /* Padding interno */
+  background-color: #2563EB; /* Azul */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 8px; /* Radio redondeado */
+  font-size: 14px; /* Tamaño de fuente */
+  font-weight: 600; /* Semi-bold */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer; /* Cursor pointer */
+  transition: background-color 0.2s; /* Transición suave */
+}
+
+/* Estado hover del botón de envío */
+.quote-form-submit:hover {
+  background-color: #1D4ED8; /* Azul más oscuro */
+}
+
+/* Botón de eliminar cotización */
+.quote-form-delete {
+  padding: 12px 24px; /* Padding interno */
+  background-color: white; /* Fondo blanco */
+  color: #DC2626; /* Rojo */
+  border: 1px solid #DC2626; /* Borde rojo */
+  border-radius: 8px; /* Radio redondeado */
+  font-size: 14px; /* Tamaño de fuente */
+  font-weight: 600; /* Semi-bold */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer; /* Cursor pointer */
+  transition: all 0.2s; /* Transición suave */
+}
+
+/* Estado hover del botón de eliminar */
+.quote-form-delete:hover {
+  background-color: #FEE2E2; /* Fondo rojo muy claro */
+  border-color: #B91C1C; /* Borde rojo más oscuro */
+  color: #B91C1C; /* Texto rojo más oscuro */
+}
+

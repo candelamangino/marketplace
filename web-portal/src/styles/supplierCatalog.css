@@ -1,0 +1,498 @@
+/**
+ * Estilos para la página de Catálogo de Insumos
+ * Diseño que replica exactamente las imágenes de referencia (Figma)
+ * 
+ * Componentes estilizados:
+ * - Header con título y subtítulo
+ * - Cards de estadísticas
+ * - Botón "Agregar Insumo"
+ * - Formulario de agregar/editar insumo
+ * - Barra de búsqueda y filtros
+ * - Tabla "Mis Insumos"
+ * - Sección "Packs de Insumos"
+ */
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+
+.supplier-catalog-page {
+  padding: 24px; /* Padding general */
+  max-width: 1400px; /* Ancho máximo */
+  margin: 0 auto; /* Centrado */
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.catalog-header {
+  margin-bottom: 24px; /* Espaciado inferior */
+}
+
+.catalog-title {
+  font-size: 28px; /* Tamaño de fuente grande */
+  font-weight: 700; /* Bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 8px 0; /* Margen inferior pequeño */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.catalog-subtitle {
+  font-size: 16px; /* Tamaño de fuente medio */
+  color: #6B7280; /* Gris medio */
+  margin: 0; /* Sin margen */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   CARDS DE ESTADÍSTICAS
+   ============================================ */
+
+.catalog-stats {
+  display: grid; /* Grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Columnas responsivas */
+  gap: 16px; /* Espaciado entre cards */
+  margin-bottom: 24px; /* Espaciado inferior */
+}
+
+.catalog-stat-card {
+  background-color: white; /* Fondo blanco */
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 12px; /* Radio redondeado */
+  padding: 20px; /* Padding interno */
+  display: flex; /* Flexbox */
+  align-items: center; /* Alineación vertical */
+  gap: 16px; /* Espaciado entre icono y contenido */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra muy sutil */
+}
+
+.catalog-stat-icon {
+  font-size: 32px; /* Tamaño del icono */
+  flex-shrink: 0; /* No se encoge */
+}
+
+.catalog-stat-content {
+  flex: 1; /* Ocupa el espacio restante */
+}
+
+.catalog-stat-number {
+  font-size: 28px; /* Tamaño grande */
+  font-weight: 700; /* Bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 4px 0; /* Margen inferior pequeño */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.catalog-stat-label {
+  font-size: 14px; /* Tamaño pequeño */
+  color: #6B7280; /* Gris medio */
+  margin: 0; /* Sin margen */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   BOTÓN AGREGAR INSUMO
+   ============================================ */
+
+.catalog-actions {
+  margin-bottom: 24px; /* Espaciado inferior */
+}
+
+.catalog-add-button {
+  padding: 14px 24px; /* Padding interno */
+  background-color: #2563EB; /* Azul */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 8px; /* Radio redondeado */
+  font-size: 16px; /* Tamaño de fuente */
+  font-weight: 600; /* Semi-bold */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer; /* Cursor pointer */
+  transition: background-color 0.2s; /* Transición suave */
+}
+
+.catalog-add-button:hover {
+  background-color: #1D4ED8; /* Azul más oscuro */
+}
+
+/* ============================================
+   FORMULARIO DE AGREGAR/EDITAR INSUMO
+   ============================================ */
+
+.catalog-form-card {
+  background-color: white; /* Fondo blanco */
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 12px; /* Radio redondeado */
+  padding: 32px; /* Padding interno */
+  margin-bottom: 24px; /* Espaciado inferior */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra muy sutil */
+}
+
+.catalog-form-title {
+  font-size: 20px; /* Tamaño de fuente */
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 24px 0; /* Margen inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.catalog-form {
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Columna */
+  gap: 20px; /* Espaciado entre campos */
+}
+
+.catalog-form-field {
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Columna */
+  gap: 8px; /* Espaciado entre label e input */
+}
+
+.catalog-form-label {
+  font-size: 14px; /* Tamaño pequeño */
+  font-weight: 500; /* Medium */
+  color: #374151; /* Gris oscuro */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.required-asterisk {
+  color: #DC2626; /* Rojo para el asterisco */
+}
+
+.catalog-form-input,
+.catalog-form-select {
+  padding: 12px 16px; /* Padding interno */
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 8px; /* Radio redondeado */
+  font-size: 14px; /* Tamaño de fuente */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1F2937; /* Color de texto */
+  background-color: white; /* Fondo blanco */
+  transition: border-color 0.2s; /* Transición suave */
+  width: 100%; /* Ancho completo */
+  box-sizing: border-box; /* Incluye padding y border en el ancho */
+}
+
+.catalog-form-input:focus,
+.catalog-form-select:focus {
+  outline: none; /* Sin outline por defecto */
+  border-color: #2563EB; /* Borde azul al enfocar */
+}
+
+.catalog-form-actions {
+  display: flex; /* Flexbox */
+  gap: 12px; /* Espaciado entre botones */
+  margin-top: 8px; /* Margen superior */
+}
+
+.catalog-form-submit {
+  padding: 12px 24px; /* Padding interno */
+  background-color: #2563EB; /* Azul */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 8px; /* Radio redondeado */
+  font-size: 14px; /* Tamaño de fuente */
+  font-weight: 600; /* Semi-bold */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer; /* Cursor pointer */
+  transition: background-color 0.2s; /* Transición suave */
+}
+
+.catalog-form-submit:hover {
+  background-color: #1D4ED8; /* Azul más oscuro */
+}
+
+.catalog-form-cancel {
+  padding: 12px 24px; /* Padding interno */
+  background-color: white; /* Fondo blanco */
+  color: #374151; /* Gris oscuro */
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 8px; /* Radio redondeado */
+  font-size: 14px; /* Tamaño de fuente */
+  font-weight: 600; /* Semi-bold */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer; /* Cursor pointer */
+  transition: all 0.2s; /* Transición suave */
+}
+
+.catalog-form-cancel:hover {
+  background-color: #F9FAFB; /* Fondo gris muy claro */
+  border-color: #D1D5DB; /* Borde gris más oscuro */
+}
+
+/* ============================================
+   BARRA DE BÚSQUEDA Y FILTROS
+   ============================================ */
+
+.catalog-filters {
+  display: flex; /* Flexbox */
+  gap: 12px; /* Espaciado entre filtros */
+  margin-bottom: 24px; /* Espaciado inferior */
+  flex-wrap: wrap; /* Permite que se ajuste */
+}
+
+.catalog-filter-group {
+  flex: 1; /* Ocupa el espacio disponible */
+  min-width: 200px; /* Ancho mínimo */
+}
+
+.catalog-search-input,
+.catalog-filter-select {
+  width: 100%; /* Ancho completo */
+  padding: 12px 16px; /* Padding interno */
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 8px; /* Radio redondeado */
+  font-size: 14px; /* Tamaño de fuente */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1F2937; /* Color de texto */
+  background-color: white; /* Fondo blanco */
+  transition: border-color 0.2s; /* Transición suave */
+  box-sizing: border-box; /* Incluye padding y border en el ancho */
+}
+
+.catalog-search-input:focus,
+.catalog-filter-select:focus {
+  outline: none; /* Sin outline por defecto */
+  border-color: #2563EB; /* Borde azul al enfocar */
+}
+
+.catalog-search-input::placeholder {
+  color: #9CA3AF; /* Color del placeholder */
+}
+
+/* ============================================
+   SECCIONES (MIS INSUMOS Y PACKS)
+   ============================================ */
+
+.catalog-section {
+  margin-bottom: 32px; /* Espaciado inferior */
+}
+
+.catalog-section-header {
+  display: flex; /* Flexbox */
+  justify-content: space-between; /* Espacio entre título y botón */
+  align-items: center; /* Alineación vertical */
+  margin-bottom: 16px; /* Espaciado inferior */
+}
+
+.catalog-section-title {
+  font-size: 20px; /* Tamaño de fuente */
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0; /* Sin margen */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.catalog-create-pack-button {
+  padding: 10px 20px; /* Padding interno */
+  background-color: #2563EB; /* Azul */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 8px; /* Radio redondeado */
+  font-size: 14px; /* Tamaño de fuente */
+  font-weight: 600; /* Semi-bold */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer; /* Cursor pointer */
+  transition: background-color 0.2s; /* Transición suave */
+}
+
+.catalog-create-pack-button:hover {
+  background-color: #1D4ED8; /* Azul más oscuro */
+}
+
+/* ============================================
+   TABLA "MIS INSUMOS"
+   ============================================ */
+
+.catalog-table-container {
+  background-color: white; /* Fondo blanco */
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 12px; /* Radio redondeado */
+  overflow: hidden; /* Oculta el overflow */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra muy sutil */
+}
+
+.catalog-table {
+  width: 100%; /* Ancho completo */
+  border-collapse: collapse; /* Colapsa los bordes */
+}
+
+.catalog-table thead {
+  background-color: #F9FAFB; /* Fondo gris muy claro */
+}
+
+.catalog-table th {
+  padding: 12px 16px; /* Padding interno */
+  text-align: left; /* Alineación izquierda */
+  font-size: 14px; /* Tamaño de fuente */
+  font-weight: 600; /* Semi-bold */
+  color: #374151; /* Gris oscuro */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  border-bottom: 1px solid #E5E7EB; /* Borde inferior */
+}
+
+.catalog-table td {
+  padding: 12px 16px; /* Padding interno */
+  text-align: left; /* Alineación izquierda */
+  font-size: 14px; /* Tamaño de fuente */
+  color: #1F2937; /* Gris oscuro */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  border-bottom: 1px solid #F3F4F6; /* Borde inferior más claro */
+}
+
+.catalog-table tbody tr:hover {
+  background-color: #F9FAFB; /* Fondo gris muy claro al hover */
+}
+
+.catalog-table tbody tr:last-child td {
+  border-bottom: none; /* Sin borde en la última fila */
+}
+
+.stock-cell {
+  color: #059669; /* Verde para el stock */
+  font-weight: 600; /* Semi-bold */
+}
+
+.catalog-edit-button {
+  background: none; /* Sin fondo */
+  border: none; /* Sin borde */
+  font-size: 18px; /* Tamaño del icono */
+  cursor: pointer; /* Cursor pointer */
+  padding: 4px 8px; /* Padding interno */
+  transition: transform 0.2s; /* Transición suave */
+}
+
+.catalog-edit-button:hover {
+  transform: scale(1.1); /* Escala ligeramente al hover */
+}
+
+/* ============================================
+   PACKS DE INSUMOS
+   ============================================ */
+
+.catalog-packs-grid {
+  display: grid; /* Grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Columnas responsivas */
+  gap: 16px; /* Espaciado entre cards */
+}
+
+.catalog-pack-card {
+  background-color: white; /* Fondo blanco */
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 12px; /* Radio redondeado */
+  padding: 20px; /* Padding interno */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra muy sutil */
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Columna */
+  gap: 12px; /* Espaciado entre elementos */
+}
+
+.catalog-pack-name {
+  font-size: 18px; /* Tamaño de fuente */
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0; /* Sin margen */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.catalog-pack-price {
+  font-size: 20px; /* Tamaño de fuente */
+  font-weight: 700; /* Bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0; /* Sin margen */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.catalog-pack-items {
+  flex: 1; /* Ocupa el espacio restante */
+}
+
+.catalog-pack-label {
+  font-size: 14px; /* Tamaño pequeño */
+  font-weight: 500; /* Medium */
+  color: #6B7280; /* Gris medio */
+  margin: 0 0 8px 0; /* Margen inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.catalog-pack-list {
+  list-style: none; /* Sin viñetas */
+  padding: 0; /* Sin padding */
+  margin: 0; /* Sin margen */
+}
+
+.catalog-pack-list li {
+  font-size: 14px; /* Tamaño pequeño */
+  color: #1F2937; /* Gris oscuro */
+  margin-bottom: 4px; /* Margen inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.catalog-pack-list li:before {
+  content: "• "; /* Viñeta personalizada */
+  color: #6B7280; /* Gris medio */
+  margin-right: 4px; /* Margen derecho */
+}
+
+.catalog-pack-edit-button {
+  padding: 8px 16px; /* Padding interno */
+  background-color: white; /* Fondo blanco */
+  color: #2563EB; /* Azul */
+  border: 1px solid #2563EB; /* Borde azul */
+  border-radius: 6px; /* Radio pequeño */
+  font-size: 14px; /* Tamaño de fuente */
+  font-weight: 500; /* Medium */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer; /* Cursor pointer */
+  transition: all 0.2s; /* Transición suave */
+  align-self: flex-start; /* Alineación a la izquierda */
+}
+
+.catalog-pack-edit-button:hover {
+  background-color: #E8F0FE; /* Fondo celeste claro */
+  border-color: #1D4ED8; /* Borde azul más oscuro */
+  color: #1D4ED8; /* Texto azul más oscuro */
+}
+
+/* ============================================
+   ESTADO VACÍO
+   ============================================ */
+
+.catalog-empty-state {
+  text-align: center; /* Texto centrado */
+  padding: 48px 24px; /* Padding interno */
+  color: #6B7280; /* Gris medio */
+  font-size: 16px; /* Tamaño de fuente */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: white; /* Fondo blanco */
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 12px; /* Radio redondeado */
+}
+
+/* ============================================
+   RESPONSIVE (para pantallas pequeñas)
+   ============================================ */
+
+@media (max-width: 768px) {
+  .catalog-stats {
+    grid-template-columns: 1fr; /* Una columna en móviles */
+  }
+
+  .catalog-filters {
+    flex-direction: column; /* Columna en móviles */
+  }
+
+  .catalog-filter-group {
+    min-width: 100%; /* Ancho completo en móviles */
+  }
+
+  .catalog-packs-grid {
+    grid-template-columns: 1fr; /* Una columna en móviles */
+  }
+
+  .catalog-table-container {
+    overflow-x: auto; /* Scroll horizontal en móviles */
+  }
+}
+

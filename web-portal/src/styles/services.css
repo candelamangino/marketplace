@@ -1,0 +1,437 @@
+/**
+ * Estilos para la página de listado de servicios
+ * Diseño que replica exactamente la imagen de referencia (Figma)
+ * 
+ * Componentes estilizados:
+ * - Header con título y subtítulo
+ * - Barra de filtros con inputs y botón
+ * - Grid de servicios
+ * - Card de estado vacío
+ */
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+
+/* Página de listado de servicios */
+.services-list-page {
+  width: 100%;
+  max-width: 1200px; /* Ancho máximo del contenido */
+  margin: 0 auto; /* Centrado */
+}
+
+/* ============================================
+   HEADER (TÍTULO Y SUBTÍTULO)
+   ============================================ */
+
+/* Contenedor del header */
+.services-header {
+  display: flex;
+  justify-content: space-between; /* Espacio entre título y botón */
+  align-items: flex-start; /* Alineación superior */
+  margin-bottom: 32px; /* Espaciado inferior de 32px */
+}
+
+.services-header-left {
+  flex: 1; /* Ocupa el espacio disponible */
+}
+
+/* Botón en el header */
+.services-header-button {
+  padding: 12px 24px; /* Padding interno */
+  background-color: #2563EB; /* Azul (#2563EB) igual al login */
+  color: white;
+  border: none;
+  border-radius: 8px; /* Radio suave */
+  font-size: 14px;
+  font-weight: 600; /* Semi-bold */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  white-space: nowrap; /* Evita que el texto se divida */
+  flex-shrink: 0; /* No se encoge */
+}
+
+.services-header-button:hover {
+  background-color: #1D4ED8; /* Azul más oscuro al pasar el mouse */
+  transform: translateY(-1px); /* Ligero movimiento hacia arriba */
+}
+
+/* Título principal "Mis Servicios" */
+.services-title {
+  font-size: 32px; /* Tamaño grande */
+  font-weight: 700; /* Bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 8px 0; /* Sin margen superior, 8px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: -0.5px; /* Espaciado de letras ligeramente negativo */
+}
+
+/* Subtítulo gris claro */
+.services-subtitle {
+  font-size: 16px; /* Tamaño mediano */
+  font-weight: 400; /* Normal */
+  color: #6B7280; /* Gris claro */
+  margin: 0; /* Sin márgenes */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   BARRA DE FILTROS
+   ============================================ */
+
+/* Contenedor de la barra de filtros */
+.services-filters-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Espaciado entre filtros */
+  margin-bottom: 16px; /* Espaciado inferior de 16px */
+  flex-wrap: wrap; /* Permite que se ajuste en pantallas pequeñas */
+}
+
+/* Contenedor de los filtros (inputs y selects) */
+.filters-container {
+  display: flex;
+  gap: 12px; /* Espaciado entre filtros */
+  flex: 1; /* Ocupa el espacio disponible */
+  flex-wrap: wrap; /* Permite que se ajuste en pantallas pequeñas */
+}
+
+/* Grupo de filtro individual */
+.filter-group {
+  flex: 1; /* Cada filtro ocupa espacio igual */
+  min-width: 200px; /* Ancho mínimo para que no se compriman demasiado */
+}
+
+/* Input de búsqueda */
+.filter-input {
+  width: 100%;
+  padding: 12px 16px; /* Padding interno */
+  border: 1px solid #E5E7EB; /* Borde gris claro */
+  border-radius: 8px; /* Radio suave */
+  font-size: 14px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1F2937;
+  background-color: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Estado de foco del input */
+.filter-input:focus {
+  outline: none;
+  border-color: #2563EB; /* Azul al enfocar */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); /* Sombra azul suave */
+}
+
+/* Placeholder del input */
+.filter-input::placeholder {
+  color: #9CA3AF; /* Gris claro para placeholder */
+}
+
+/* Select de filtro (categoría, ciudad) */
+.filter-select {
+  width: 100%;
+  padding: 12px 16px; /* Padding interno */
+  border: 1px solid #E5E7EB; /* Borde gris claro */
+  border-radius: 8px; /* Radio suave */
+  font-size: 14px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1F2937;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  
+  /* Estilo para la flecha del select */
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23374151' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+/* Estado de foco del select */
+.filter-select:focus {
+  outline: none;
+  border-color: #2563EB; /* Azul al enfocar */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); /* Sombra azul suave */
+}
+
+/* Contador de servicios encontrados */
+.services-count {
+  font-size: 14px;
+  font-weight: 400; /* Normal */
+  color: #6B7280; /* Gris medio */
+  margin: 0 0 16px 0; /* Sin margen superior, 16px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   ESTADO VACÍO (NO HAY SERVICIOS)
+   ============================================ */
+
+/* Card grande centrada para estado vacío */
+.services-empty-state {
+  background-color: white;
+  border-radius: 12px; /* Radio suave */
+  padding: 64px 32px; /* Padding generoso */
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06); /* Sombra suave */
+  margin-top: 24px; /* Margen superior */
+}
+
+/* Ícono de filtro/búsqueda en el estado vacío */
+.empty-state-icon {
+  font-size: 64px; /* Tamaño grande del ícono */
+  margin-bottom: 24px; /* Espaciado inferior */
+  opacity: 0.5; /* Opacidad reducida para efecto sutil */
+}
+
+/* Título del estado vacío */
+.empty-state-title {
+  font-size: 20px;
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 8px 0; /* Sin margen superior, 8px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Texto descriptivo del estado vacío */
+.empty-state-text {
+  font-size: 14px;
+  font-weight: 400; /* Normal */
+  color: #6B7280; /* Gris medio */
+  margin: 0 0 24px 0; /* Sin margen superior, 24px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5; /* Interlineado cómodo */
+  max-width: 400px; /* Ancho máximo del texto */
+  margin-left: auto; /* Centrado */
+  margin-right: auto; /* Centrado */
+}
+
+/* Botón en el estado vacío */
+.empty-state-button {
+  padding: 12px 24px; /* Padding interno */
+  background-color: #2563EB; /* Azul */
+  color: white;
+  border: none;
+  border-radius: 8px; /* Radio suave */
+  font-size: 14px;
+  font-weight: 600; /* Semi-bold */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Estado hover del botón del estado vacío */
+.empty-state-button:hover {
+  background-color: #1D4ED8; /* Azul más oscuro */
+  transform: translateY(-1px); /* Ligero movimiento */
+}
+
+/* ============================================
+   GRID DE SERVICIOS
+   ============================================ */
+
+/* Lista de servicios cuando hay resultados */
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Espaciado entre cards */
+}
+
+/* Card individual de servicio - Formato horizontal */
+.service-card {
+  background-color: white;
+  border-radius: 12px; /* Radio suave */
+  padding: 24px; /* Padding interno */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06); /* Sombra suave */
+  transition: box-shadow 0.2s, transform 0.2s;
+  border: 1px solid #E5E7EB; /* Borde sutil */
+  display: flex;
+  justify-content: space-between; /* Espacio entre contenido y acciones */
+  align-items: flex-start; /* Alineación superior */
+  gap: 24px; /* Espaciado entre contenido y acciones */
+}
+
+/* Efecto hover en la card */
+.service-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06); /* Sombra más pronunciada */
+  transform: translateY(-2px); /* Ligero movimiento hacia arriba */
+}
+
+/* Contenedor del contenido principal */
+.service-card-content {
+  flex: 1; /* Ocupa el espacio disponible */
+  min-width: 0; /* Permite que el texto se trunque si es necesario */
+}
+
+/* Título de la card de servicio */
+.service-card-title {
+  font-size: 18px;
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 8px 0; /* Sin margen superior, 8px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Descripción del servicio */
+.service-card-description {
+  font-size: 14px;
+  font-weight: 400; /* Normal */
+  color: #374151; /* Gris oscuro */
+  margin: 0 0 16px 0; /* Sin margen superior, 16px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5; /* Interlineado cómodo */
+}
+
+/* Contenedor de badges de información */
+.service-card-badges {
+  display: flex;
+  flex-wrap: wrap; /* Permite que se ajuste en múltiples líneas */
+  gap: 8px; /* Espaciado entre badges */
+}
+
+/* Badges de información (categoría, ciudad, fecha, cotizaciones) */
+.service-badge {
+  display: inline-block;
+  padding: 4px 12px; /* Padding interno */
+  border-radius: 12px; /* Radio suave */
+  font-size: 12px;
+  font-weight: 400; /* Normal */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #F3F4F6; /* Fondo gris claro */
+  color: #374151; /* Texto gris oscuro */
+}
+
+/* Badge de categoría */
+.service-badge-category {
+  background-color: #F3F4F6;
+  color: #374151;
+}
+
+/* Badge de ubicación */
+.service-badge-location {
+  background-color: #F3F4F6;
+  color: #374151;
+}
+
+/* Badge de fecha */
+.service-badge-date {
+  background-color: #F3F4F6;
+  color: #374151;
+}
+
+/* Badge de cotizaciones */
+.service-badge-quotes {
+  background-color: #F3F4F6;
+  color: #374151;
+}
+
+/* Contenedor de acciones (estado y botón) */
+.service-card-actions {
+  display: flex;
+  flex-direction: column; /* Estado y botón en columna */
+  align-items: flex-end; /* Alineados a la derecha */
+  gap: 12px; /* Espaciado entre estado y botón */
+  flex-shrink: 0; /* No se encoge */
+}
+
+/* Badge de estado del servicio */
+.service-status-badge {
+  display: inline-block;
+  padding: 4px 12px; /* Padding interno */
+  border-radius: 12px; /* Radio suave */
+  font-size: 12px;
+  font-weight: 500; /* Medium */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Colores de los badges de estado */
+.service-status-publicado {
+  background-color: #DBEAFE; /* Azul claro */
+  color: #1E40AF; /* Azul oscuro */
+}
+
+.service-status-en_evaluacion {
+  background-color: #FEF3C7; /* Amarillo claro */
+  color: #92400E; /* Amarillo oscuro */
+}
+
+.service-status-asignado {
+  background-color: #D1FAE5; /* Verde claro */
+  color: #065F46; /* Verde oscuro */
+}
+
+.service-status-completado {
+  background-color: #E0E7FF; /* Índigo claro */
+  color: #3730A3; /* Índigo oscuro */
+}
+
+/* Botón "Ver detalle" */
+.service-card-button {
+  padding: 8px 16px; /* Padding interno */
+  background-color: #2563EB; /* Azul */
+  color: white;
+  border: none;
+  border-radius: 8px; /* Radio suave */
+  font-size: 14px;
+  font-weight: 500; /* Medium */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.1s;
+  display: inline-block;
+}
+
+/* Estado hover del botón */
+.service-card-button:hover {
+  background-color: #1D4ED8; /* Azul más oscuro */
+  transform: translateY(-1px); /* Ligero movimiento */
+}
+
+/* ============================================
+   RESPONSIVE (para pantallas pequeñas)
+   ============================================ */
+
+/* Ajustes para tablets */
+@media (max-width: 768px) {
+  .services-filters-bar {
+    flex-direction: column; /* Filtros y botón en columna */
+    align-items: stretch; /* Ocupan todo el ancho */
+  }
+
+  .filters-container {
+    flex-direction: column; /* Filtros en columna */
+  }
+
+  .filter-group {
+    min-width: 100%; /* Ancho completo */
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr; /* Una sola columna */
+  }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 480px) {
+  .services-title {
+    font-size: 24px; /* Título más pequeño */
+  }
+
+  .services-subtitle {
+    font-size: 14px; /* Subtítulo más pequeño */
+  }
+
+  .services-empty-state {
+    padding: 48px 24px; /* Padding reducido */
+  }
+
+  .empty-state-icon {
+    font-size: 48px; /* Ícono más pequeño */
+  }
+
+  .service-card {
+    padding: 20px; /* Padding reducido */
+  }
+}
+

@@ -1,0 +1,324 @@
+/**
+ * Estilos para la página de Login
+ * Diseño que replica exactamente la imagen de referencia
+ */
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+
+/* Página completa: fondo con gradiente celeste-verde y centrado vertical/horizontal */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  
+  /* Gradiente suave de celeste a verde claro */
+  background: linear-gradient(135deg, #a8e6cf 0%, #dcedc8 50%, #b2dfdb 100%);
+  
+  /* Asegura que el fondo cubra toda la pantalla */
+  background-attachment: fixed;
+}
+
+/* Card blanco principal con sombra suave y border-radius grande */
+.login-card {
+  background: white;
+  border-radius: 24px; /* Border-radius grande como en la imagen */
+  padding: 40px; /* Espaciado interno de 40px */
+  width: 100%;
+  max-width: 480px; /* Ancho máximo del card */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 10px 20px rgba(0, 0, 0, 0.05);
+  
+  /* Margen superior para separar del borde superior */
+  margin-top: 40px;
+  
+  /* Centrado del contenido interno */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ============================================
+   LOGO
+   ============================================ */
+
+/* Contenedor del logo centrado */
+.login-logo {
+  margin-bottom: 24px; /* Espaciado inferior de 24px */
+  display: flex;
+  justify-content: center;
+}
+
+/* Círculo azul claro que contiene el cubo */
+.logo-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%; /* Círculo perfecto */
+  background-color: #93c5fd; /* Azul claro (#93C5FD) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Cubo azul dentro del círculo */
+.logo-cube {
+  width: 32px;
+  height: 32px;
+  background-color: #60a5fa; /* Azul más intenso (#60A5FA) */
+  border-radius: 6px; /* Esquinas ligeramente redondeadas */
+  transform: rotate(45deg); /* Rotación de 45 grados para efecto de cubo */
+}
+
+/* ============================================
+   TÍTULOS
+   ============================================ */
+
+/* Título principal "Marketplace" */
+.login-title {
+  font-size: 32px; /* Tamaño grande y bold */
+  font-weight: 700; /* Bold */
+  color: #1f2937; /* Gris oscuro (#1F2937) */
+  margin: 0 0 8px 0; /* Sin margen superior, 8px inferior */
+  text-align: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: -0.5px; /* Espaciado de letras ligeramente negativo */
+}
+
+/* Subtítulo "Servicios con Insumos" */
+.login-subtitle {
+  font-size: 16px; /* Tamaño mediano */
+  font-weight: 400; /* Peso normal */
+  color: #6b7280; /* Gris claro (#6B7280) */
+  margin: 0 0 32px 0; /* Sin margen superior, 32px inferior */
+  text-align: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   FORMULARIO
+   ============================================ */
+
+/* Contenedor del formulario */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Espaciado de 16px entre campos */
+  margin-bottom: 32px; /* Espaciado inferior de 32px */
+}
+
+/* Contenedor de cada campo del formulario */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Espaciado entre label e input */
+}
+
+/* Labels de los campos */
+.form-field label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151; /* Gris medio (#374151) */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Inputs de texto */
+.login-input {
+  width: 100%;
+  padding: 12px 16px; /* Padding interno */
+  border: 1px solid #e5e7eb; /* Borde gris claro (#E5E7EB) */
+  border-radius: 8px; /* Radio suave */
+  font-size: 16px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1f2937;
+  background-color: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Estado de foco del input */
+.login-input:focus {
+  outline: none;
+  border-color: #2563eb; /* Azul al enfocar */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); /* Sombra azul suave */
+}
+
+/* Placeholder del input */
+.login-input::placeholder {
+  color: #9ca3af; /* Gris claro para placeholder */
+}
+
+/* Selector de rol (dropdown) */
+.login-select {
+  width: 100%;
+  padding: 12px 16px; /* Padding interno */
+  border: 1px solid #e5e7eb; /* Borde gris claro (#E5E7EB) */
+  border-radius: 8px; /* Radio suave */
+  font-size: 16px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1f2937;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  
+  /* Estilo para la flecha del select */
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23374151' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+/* Estado de foco del select */
+.login-select:focus {
+  outline: none;
+  border-color: #2563eb; /* Azul al enfocar */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); /* Sombra azul suave */
+}
+
+/* ============================================
+   BOTÓN DE INGRESO
+   ============================================ */
+
+/* Botón azul principal "Ingresar" */
+.login-button {
+  width: 100%;
+  padding: 14px 24px; /* Padding generoso */
+  background-color: #2563eb; /* Azul (#2563EB) */
+  color: white;
+  border: none;
+  border-radius: 8px; /* Radio suave */
+  font-size: 16px;
+  font-weight: 600; /* Semi-bold */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  margin-top: 8px; /* Espaciado superior adicional */
+}
+
+/* Efecto hover del botón */
+.login-button:hover {
+  background-color: #1d4ed8; /* Azul más oscuro al pasar el mouse */
+  transform: translateY(-1px); /* Ligero movimiento hacia arriba */
+}
+
+/* Efecto active del botón */
+.login-button:active {
+  transform: translateY(0); /* Vuelve a la posición original */
+  background-color: #1e40af; /* Azul aún más oscuro */
+}
+
+/* ============================================
+   SECCIÓN DE ACCESO RÁPIDO
+   ============================================ */
+
+/* Contenedor de la sección de acceso rápido */
+.quick-access-section {
+  width: 100%;
+  margin-bottom: 24px; /* Espaciado inferior */
+}
+
+/* Título de la sección de acceso rápido */
+.quick-access-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151; /* Gris medio */
+  margin: 0 0 12px 0; /* Sin margen superior, 12px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Contenedor de los botones de acceso rápido */
+.quick-access-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Espaciado entre botones */
+}
+
+/* Botones blancos de acceso rápido */
+.quick-access-button {
+  width: 100%;
+  padding: 12px 16px; /* Padding interno */
+  background-color: white;
+  color: #1f2937; /* Texto gris oscuro */
+  border: 1px solid #e5e7eb; /* Borde gris claro */
+  border-radius: 8px; /* Radio suave */
+  font-size: 14px;
+  font-weight: 400; /* Peso normal */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  text-align: left; /* Texto alineado a la izquierda */
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+/* Efecto hover de los botones de acceso rápido */
+.quick-access-button:hover {
+  background-color: #f9fafb; /* Fondo gris muy claro al pasar el mouse */
+  border-color: #d1d5db; /* Borde un poco más oscuro */
+}
+
+/* Efecto active de los botones de acceso rápido */
+.quick-access-button:active {
+  background-color: #f3f4f6; /* Fondo gris claro al hacer click */
+}
+
+/* ============================================
+   CAJA DE INFORMACIÓN INFERIOR
+   ============================================ */
+
+/* Contenedor de la caja de información */
+.login-info-box {
+  width: 100%;
+  padding: 12px 16px; /* Padding interno */
+  background-color: #dbeafe; /* Azul muy claro (#DBEAFE) */
+  border-radius: 8px; /* Radio suave */
+  display: flex;
+  align-items: flex-start;
+  gap: 12px; /* Espaciado entre ícono y texto */
+}
+
+/* Ícono de información (azul) */
+.info-icon {
+  font-size: 18px;
+  color: #2563eb; /* Azul (#2563EB) */
+  flex-shrink: 0; /* No se encoge */
+  line-height: 1.4; /* Alineación vertical con el texto */
+}
+
+/* Texto de información */
+.info-text {
+  font-size: 13px;
+  font-weight: 400;
+  color: #1e40af; /* Azul oscuro (#1E40AF) */
+  margin: 0; /* Sin márgenes */
+  line-height: 1.5; /* Interlineado cómodo */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   RESPONSIVE (para pantallas pequeñas)
+   ============================================ */
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 32px 24px; /* Padding reducido en móviles */
+    margin-top: 20px; /* Margen superior reducido */
+    border-radius: 20px; /* Border-radius ligeramente reducido */
+  }
+
+  .login-title {
+    font-size: 28px; /* Título un poco más pequeño */
+  }
+
+  .logo-circle {
+    width: 56px; /* Logo un poco más pequeño */
+    height: 56px;
+  }
+
+  .logo-cube {
+    width: 28px;
+    height: 28px;
+  }
+}
+

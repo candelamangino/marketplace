@@ -1,0 +1,469 @@
+/**
+ * Estilos para la página de formulario de servicio
+ * Diseño que replica exactamente la imagen de referencia (Figma)
+ * 
+ * Componentes estilizados:
+ * - Header con título y subtítulo
+ * - Secciones del formulario (cards blancos)
+ * - Inputs, textareas y selects
+ * - Selector de fecha con icono
+ * - Sección de insumos con botón de agregar
+ * - Botones de acción finales
+ */
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+
+/* Página del formulario de servicio */
+.service-form-page {
+  width: 100%;
+  max-width: 900px; /* Ancho máximo del formulario */
+  margin: 0 auto; /* Centrado */
+}
+
+/* ============================================
+   HEADER (TÍTULO Y SUBTÍTULO)
+   ============================================ */
+
+/* Contenedor del header */
+.service-form-header {
+  margin-bottom: 32px; /* Espaciado inferior de 32px */
+}
+
+/* Título principal "Publicar Nuevo Servicio" */
+.service-form-title {
+  font-size: 32px; /* Tamaño grande */
+  font-weight: 700; /* Bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 8px 0; /* Sin margen superior, 8px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: -0.5px; /* Espaciado de letras ligeramente negativo */
+}
+
+/* Subtítulo */
+.service-form-subtitle {
+  font-size: 16px; /* Tamaño mediano */
+  font-weight: 400; /* Normal */
+  color: #6B7280; /* Gris claro */
+  margin: 0; /* Sin márgenes */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   FORMULARIO
+   ============================================ */
+
+/* Formulario principal */
+.service-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Espaciado entre secciones */
+}
+
+/* ============================================
+   SECCIONES DEL FORMULARIO (CARDS)
+   ============================================ */
+
+/* Cada sección es un card blanco con borde y sombra */
+.form-section {
+  background-color: white;
+  border: 1px solid #E5E7EB; /* Borde gris suave */
+  border-radius: 12px; /* Radio redondeado de 12px */
+  padding: 24px; /* Padding interno */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06); /* Sombra muy suave */
+}
+
+/* Título de cada sección (Datos Básicos, Ubicación, Insumos Requeridos) */
+.form-section-title {
+  font-size: 18px; /* Tamaño mediano */
+  font-weight: 600; /* Semi-bold */
+  color: #1F2937; /* Gris oscuro */
+  margin: 0 0 8px 0; /* Sin margen superior, 8px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  padding-bottom: 16px; /* Padding inferior */
+  border-bottom: 1px solid #E5E7EB; /* Borde inferior sutil */
+}
+
+/* Descripción de la sección (solo para Insumos Requeridos) */
+.form-section-description {
+  font-size: 14px;
+  font-weight: 400; /* Normal */
+  color: #6B7280; /* Gris medio */
+  margin: 0 0 20px 0; /* Sin margen superior, 20px inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5; /* Interlineado cómodo */
+}
+
+/* ============================================
+   CAMPOS DEL FORMULARIO
+   ============================================ */
+
+/* Contenedor de cada campo */
+.form-field {
+  margin-bottom: 20px; /* Espaciado inferior entre campos */
+}
+
+/* Último campo de cada sección sin margen inferior */
+.form-field:last-child {
+  margin-bottom: 0;
+}
+
+/* Labels de los campos */
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500; /* Medium */
+  color: #374151; /* Gris medio */
+  margin-bottom: 8px; /* Espaciado inferior */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Asterisco rojo para campos requeridos */
+.required-asterisk {
+  color: #DC2626; /* Rojo */
+  margin-left: 2px;
+}
+
+/* Label invisible para alinear botones */
+.form-label-invisible {
+  visibility: hidden;
+  margin-bottom: 0;
+  height: 0;
+}
+
+/* ============================================
+   INPUTS Y TEXTAREAS
+   ============================================ */
+
+/* Inputs de texto */
+.form-input {
+  width: 100%;
+  padding: 12px 16px; /* Padding interno */
+  border: 1px solid #E5E7EB; /* Borde gris claro */
+  border-radius: 8px; /* Radio suave */
+  font-size: 14px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1F2937;
+  background-color: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box; /* Incluye padding en el ancho */
+}
+
+/* Estado de foco del input */
+.form-input:focus {
+  outline: none;
+  border-color: #2563EB; /* Azul al enfocar */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); /* Sombra azul suave */
+}
+
+/* Placeholder del input */
+.form-input::placeholder {
+  color: #9CA3AF; /* Gris claro para placeholder */
+}
+
+/* Textarea */
+.form-textarea {
+  width: 100%;
+  padding: 12px 16px; /* Padding interno */
+  border: 1px solid #E5E7EB; /* Borde gris claro */
+  border-radius: 8px; /* Radio suave */
+  font-size: 14px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1F2937;
+  background-color: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  resize: vertical; /* Permite redimensionar verticalmente */
+  min-height: 100px; /* Altura mínima */
+  box-sizing: border-box; /* Incluye padding en el ancho */
+}
+
+/* Estado de foco del textarea */
+.form-textarea:focus {
+  outline: none;
+  border-color: #2563EB; /* Azul al enfocar */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); /* Sombra azul suave */
+}
+
+/* Placeholder del textarea */
+.form-textarea::placeholder {
+  color: #9CA3AF; /* Gris claro para placeholder */
+}
+
+/* ============================================
+   SELECTS
+   ============================================ */
+
+/* Selects (dropdowns) */
+.form-select {
+  width: 100%;
+  padding: 12px 16px; /* Padding interno */
+  border: 1px solid #E5E7EB; /* Borde gris claro */
+  border-radius: 8px; /* Radio suave */
+  font-size: 14px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1F2937;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  
+  /* Estilo para la flecha del select */
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23374151' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+  box-sizing: border-box; /* Incluye padding en el ancho */
+}
+
+/* Estado de foco del select */
+.form-select:focus {
+  outline: none;
+  border-color: #2563EB; /* Azul al enfocar */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); /* Sombra azul suave */
+}
+
+/* Select deshabilitado */
+.form-select:disabled {
+  background-color: #F3F4F6; /* Fondo gris claro */
+  color: #9CA3AF; /* Texto gris */
+  cursor: not-allowed;
+}
+
+/* ============================================
+   SELECTOR DE FECHA
+   ============================================ */
+
+/* Contenedor del input de fecha con icono */
+.date-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Input de fecha */
+.form-date-input {
+  padding-right: 48px; /* Espacio para el icono */
+}
+
+/* Icono de calendario */
+.date-icon {
+  position: absolute;
+  right: 16px; /* Posición desde la derecha */
+  font-size: 18px;
+  color: #6B7280; /* Gris medio */
+  pointer-events: none; /* No interfiere con el click en el input */
+}
+
+/* ============================================
+   SECCIÓN DE INSUMOS
+   ============================================ */
+
+/* Contenedor para agregar insumos */
+.insumos-add-container {
+  display: flex;
+  gap: 12px; /* Espaciado entre campos */
+  align-items: flex-end; /* Alineación inferior para que los labels queden alineados */
+  flex-wrap: wrap; /* Permite que se ajuste en pantallas pequeñas */
+}
+
+/* Campo de insumo */
+.insumo-field {
+  flex: 1; /* Ocupa el espacio disponible */
+  min-width: 200px; /* Ancho mínimo */
+}
+
+/* Campos pequeños (cantidad y unidades) */
+.insumo-field-small {
+  flex: 0 0 120px; /* Ancho fijo pequeño */
+  min-width: 100px;
+}
+
+/* Campo del botón */
+.insumo-field-button {
+  flex: 0 0 auto; /* No crece ni se encoge */
+}
+
+/* Botón "Agregar Insumo" */
+.insumo-add-button {
+  padding: 12px 20px; /* Padding interno */
+  background-color: white;
+  color: #2563EB; /* Azul */
+  border: 1px solid #2563EB; /* Borde azul */
+  border-radius: 8px; /* Radio suave */
+  font-size: 14px;
+  font-weight: 500; /* Medium */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap; /* Evita que el texto se divida */
+}
+
+/* Estado hover del botón agregar insumo */
+.insumo-add-button:hover:not(:disabled) {
+  background-color: #EFF6FF; /* Fondo azul muy claro */
+  border-color: #1D4ED8; /* Borde azul más oscuro */
+}
+
+/* Estado disabled del botón agregar insumo */
+.insumo-add-button:disabled {
+  opacity: 0.5; /* Opacidad reducida */
+  cursor: not-allowed;
+}
+
+/* Lista de insumos agregados */
+.insumos-list {
+  margin-top: 20px; /* Margen superior */
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Espaciado entre items */
+}
+
+/* Item individual de insumo */
+.insumo-item {
+  display: flex;
+  justify-content: space-between; /* Espacio entre texto y botón */
+  align-items: center;
+  padding: 12px 16px; /* Padding interno */
+  background-color: #F9FAFB; /* Fondo gris muy claro */
+  border: 1px solid #E5E7EB; /* Borde gris claro */
+  border-radius: 8px; /* Radio suave */
+}
+
+/* Texto del item de insumo */
+.insumo-item-text {
+  font-size: 14px;
+  font-weight: 400; /* Normal */
+  color: #374151; /* Gris oscuro */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Botón para eliminar insumo */
+.insumo-remove-button {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  color: #DC2626; /* Rojo */
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+/* Estado hover del botón eliminar */
+.insumo-remove-button:hover {
+  background-color: #FEE2E2; /* Fondo rojo muy claro */
+}
+
+/* ============================================
+   BOTONES DE ACCIÓN FINALES
+   ============================================ */
+
+/* Contenedor de los botones finales */
+.form-actions {
+  display: flex;
+  justify-content: flex-end; /* Alineados a la derecha */
+  gap: 12px; /* Espaciado entre botones */
+  margin-top: 8px; /* Margen superior */
+  padding-top: 24px; /* Padding superior */
+}
+
+/* Botones del formulario */
+.form-button {
+  padding: 12px 24px; /* Padding interno */
+  border-radius: 8px; /* Radio suave */
+  font-size: 14px;
+  font-weight: 600; /* Semi-bold */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+/* Botón Cancelar (gris claro) */
+.form-button-cancel {
+  background-color: white;
+  color: #6B7280; /* Gris medio */
+  border: 1px solid #E5E7EB; /* Borde gris claro */
+}
+
+/* Estado hover del botón cancelar */
+.form-button-cancel:hover {
+  background-color: #F9FAFB; /* Fondo gris muy claro */
+  border-color: #D1D5DB; /* Borde gris más oscuro */
+  color: #374151; /* Texto más oscuro */
+}
+
+/* Botón Publicar Servicio (azul) */
+.form-button-submit {
+  background-color: #2563EB; /* Azul (#2563EB) igual al login */
+  color: white;
+}
+
+/* Estado hover del botón publicar */
+.form-button-submit:hover {
+  background-color: #1D4ED8; /* Azul más oscuro */
+  transform: translateY(-1px); /* Ligero movimiento hacia arriba */
+}
+
+/* Estado active del botón publicar */
+.form-button-submit:active {
+  transform: translateY(0); /* Vuelve a la posición original */
+  background-color: #1E40AF; /* Azul aún más oscuro */
+}
+
+/* ============================================
+   RESPONSIVE (para pantallas pequeñas)
+   ============================================ */
+
+/* Ajustes para tablets */
+@media (max-width: 768px) {
+  .service-form-page {
+    max-width: 100%; /* Ancho completo */
+  }
+
+  .form-section {
+    padding: 20px; /* Padding reducido */
+  }
+
+  .insumos-add-container {
+    flex-direction: column; /* Campos en columna */
+  }
+
+  .insumo-field-small {
+    flex: 1; /* Ancho completo */
+    min-width: 100%;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse; /* Botones en columna, cancelar arriba */
+  }
+
+  .form-button {
+    width: 100%; /* Ancho completo */
+  }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 480px) {
+  .service-form-title {
+    font-size: 24px; /* Título más pequeño */
+  }
+
+  .service-form-subtitle {
+    font-size: 14px; /* Subtítulo más pequeño */
+  }
+
+  .form-section {
+    padding: 16px; /* Padding más reducido */
+  }
+
+  .form-section-title {
+    font-size: 16px; /* Título de sección más pequeño */
+  }
+}
+
